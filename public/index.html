@@ -7,10 +7,7 @@
 <!-- Tailwind CSS Engine -->
 <script src="https://jsdelivr.net"></script>
 <style>
-/* Smooth glow animation for inputs and buttons */
-.neon-border:focus {
-box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
-}
+.neon-border:focus { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
 .app-card:hover {
 box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.2);
 transform: translateY(-4px);
@@ -22,19 +19,12 @@ transform: translateY(-4px);
 <!-- Top Navbar -->
 <header class="border-b border-slate-900 bg-[#0d1321]/80 backdrop-blur-md px-6 py-4 flex justify-between items-center fixed top-0 w-full z-50">
 <div class="flex items-center space-x-2">
-<span class="text-2xl font-black tracking-tighter bg-gradient-to-r from-purple-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">
-SKIDD
-</span>
+<span class="text-2xl font-black tracking-tighter bg-gradient-to-r from-purple-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">SKIDD</span>
 <span class="text-xs font-bold uppercase tracking-widest bg-purple-500/10 text-purple-400 border border-purple-500/20 px-2 py-0.5 rounded-full">v3.0</span>
 </div>
-<nav class="hidden md:flex space-x-8 text-sm font-semibold text-slate-400">
-<a href="#" class="hover:text-purple-400 transition-colors">Proxy</a>
-<a href="#" class="hover:text-purple-400 transition-colors">Games</a>
-<a href="#" class="hover:text-purple-400 transition-colors">Settings</a>
-</nav>
 </header>
 
-<!-- Main Space -->
+<!-- Main Content -->
 <main class="flex-grow flex flex-col items-center justify-center pt-28 pb-12 px-4 max-w-4xl mx-auto w-full">
 
 <!-- Header Text -->
@@ -42,17 +32,16 @@ SKIDD
 <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 text-white">
 <span class="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-pink-500 bg-clip-text text-transparent">Skidd Unblocked</span>
 </h1>
-<p class="text-slate-400 text-sm md:text-base max-w-md mx-auto">
-Securely stream, browse, and connect bypassing network restrictions.
-</p>
+<p class="text-slate-400 text-sm md:text-base max-w-md mx-auto">Securely browse websites freely through your Scramjet engine.</p>
 </div>
 
-<!-- Proxy Search Bar -->
-<form id="proxy-form" class="w-full max-w-2xl relative mb-16 group">
+<!-- Custom Search Bar Linked to your Backend -->
+<form action="https://onrender.com" method="GET" id="proxy-form" class="w-full max-w-2xl relative mb-16 group">
 <input
 type="text"
+name="url"
 id="proxy-address"
-placeholder="Enter URL or search Google freely..."
+placeholder="Enter URL (e.g., https://google.com)..."
 class="w-full bg-[#121a2e] border border-slate-800 rounded-2xl pl-6 pr-24 py-4.5 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-all duration-300 text-base md:text-lg neon-border"
 required
 >
@@ -67,52 +56,34 @@ Launch
 <!-- Quick Launch Apps Grid -->
 <div class="w-full">
 <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6 text-center md:text-left">Quick Launch Web Apps</h2>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
 
-<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-
-<!-- YouTube -->
-<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="document.getElementById('proxy-address').value='https://youtube.com';">
-<div class="w-12 h-12 bg-red-500/10 text-red-500 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-<span class="text-xl font-bold">YT</span>
-</div>
-<span class="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">YouTube</span>
+<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="document.getElementById('proxy-address').value='https://youtube.com'; document.getElementById('proxy-form').submit();">
+<div class="w-12 h-12 bg-red-500/10 text-red-500 rounded-xl flex items-center justify-center mb-3"><span class="text-xl font-bold">YT</span></div>
+<span class="text-sm font-semibold text-slate-300 group-hover:text-white">YouTube</span>
 </div>
 
-<!-- Discord -->
-<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="document.getElementById('proxy-address').value='https://discord.com';">
-<div class="w-12 h-12 bg-indigo-500/10 text-indigo-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-<span class="text-xl font-bold">DC</span>
-</div>
-<span class="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">Discord</span>
+<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="document.getElementById('proxy-address').value='https://discord.com'; document.getElementById('proxy-form').submit();">
+<div class="w-12 h-12 bg-indigo-500/10 text-indigo-400 rounded-xl flex items-center justify-center mb-3"><span class="text-xl font-bold">DC</span></div>
+<span class="text-sm font-semibold text-slate-300 group-hover:text-white">Discord</span>
 </div>
 
-<!-- TikTok -->
-<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="document.getElementById('proxy-address').value='https://tiktok.com';">
-<div class="w-12 h-12 bg-teal-500/10 text-teal-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-<span class="text-xl font-bold">TT</span>
-</div>
-<span class="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">TikTok</span>
+<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="document.getElementById('proxy-address').value='https://tiktok.com'; document.getElementById('proxy-form').submit();">
+<div class="w-12 h-12 bg-teal-500/10 text-teal-400 rounded-xl flex items-center justify-center mb-3"><span class="text-xl font-bold">TT</span></div>
+<span class="text-sm font-semibold text-slate-300 group-hover:text-white">TikTok</span>
 </div>
 
-<!-- Google -->
-<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="document.getElementById('proxy-address').value='https://google.com';">
-<div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-<span class="text-xl font-bold">G</span>
-</div>
-<span class="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">Google</span>
+<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="document.getElementById('proxy-address').value='https://google.com'; document.getElementById('proxy-form').submit();">
+<div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center mb-3"><span class="text-xl font-bold">G</span></div>
+<span class="text-sm font-semibold text-slate-300 group-hover:text-white">Google</span>
 </div>
 
 </div>
 </div>
-
 </main>
 
-<!-- Footer -->
-<footer class="border-t border-slate-950 bg-[#070a12] px-6 py-4 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-600 space-y-2 sm:space-y-0">
-<p>&copy; 2026 Skidd Network. All routing encrypted.</p>
-<div class="space-x-4">
-<span class="text-emerald-500 font-medium">● Edge Nodes Connected</span>
-</div>
+<footer class="border-t border-slate-950 bg-[#070a12] px-6 py-4 text-center text-xs text-slate-600">
+<p>&copy; 2026 Skidd Network. Powered by Scramjet Edge.</p>
 </footer>
 
 </body>
