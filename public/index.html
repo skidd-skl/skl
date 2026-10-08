@@ -1,3 +1,15 @@
+None selected
+
+Skip to content
+Using Gmail with screen readers
+1 of 582
+(no subject)
+Inbox
+
+AidenVR <metayeep1fy@gmail.com>
+6:53 PM (0 minutes ago)
+to me
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,11 +47,10 @@ transform: translateY(-4px);
 <p class="text-slate-400 text-sm md:text-base max-w-md mx-auto">Securely browse websites freely through your Scramjet engine.</p>
 </div>
 
-<!-- Custom Search Bar Linked to your Backend -->
-<form action="https://onrender.com" method="GET" id="proxy-form" class="w-full max-w-2xl relative mb-16 group">
+<!-- Custom Search Bar -->
+<form id="proxy-form" class="w-full max-w-2xl relative mb-16 group">
 <input
 type="text"
-name="url"
 id="proxy-address"
 placeholder="Enter URL (e.g., https://google.com)..."
 class="w-full bg-[#121a2e] border border-slate-800 rounded-2xl pl-6 pr-24 py-4.5 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-all duration-300 text-base md:text-lg neon-border"
@@ -58,22 +69,22 @@ Launch
 <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6 text-center md:text-left">Quick Launch Web Apps</h2>
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
 
-<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="document.getElementById('proxy-address').value='https://youtube.com'; document.getElementById('proxy-form').submit();">
+<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="launchProxy('https://youtube.com')">
 <div class="w-12 h-12 bg-red-500/10 text-red-500 rounded-xl flex items-center justify-center mb-3"><span class="text-xl font-bold">YT</span></div>
 <span class="text-sm font-semibold text-slate-300 group-hover:text-white">YouTube</span>
 </div>
 
-<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="document.getElementById('proxy-address').value='https://discord.com'; document.getElementById('proxy-form').submit();">
+<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="launchProxy('https://discord.com')">
 <div class="w-12 h-12 bg-indigo-500/10 text-indigo-400 rounded-xl flex items-center justify-center mb-3"><span class="text-xl font-bold">DC</span></div>
 <span class="text-sm font-semibold text-slate-300 group-hover:text-white">Discord</span>
 </div>
 
-<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="document.getElementById('proxy-address').value='https://tiktok.com'; document.getElementById('proxy-form').submit();">
+<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="launchProxy('https://tiktok.com')">
 <div class="w-12 h-12 bg-teal-500/10 text-teal-400 rounded-xl flex items-center justify-center mb-3"><span class="text-xl font-bold">TT</span></div>
 <span class="text-sm font-semibold text-slate-300 group-hover:text-white">TikTok</span>
 </div>
 
-<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="document.getElementById('proxy-address').value='https://google.com'; document.getElementById('proxy-form').submit();">
+<div class="app-card bg-[#121a2e] border border-slate-800/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 group" onclick="launchProxy('https://google.com')">
 <div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center mb-3"><span class="text-xl font-bold">G</span></div>
 <span class="text-sm font-semibold text-slate-300 group-hover:text-white">Google</span>
 </div>
@@ -86,5 +97,27 @@ Launch
 <p>&copy; 2026 Skidd Network. Powered by Scramjet Edge.</p>
 </footer>
 
+<!-- JavaScript Injection to redirect to your exact backend address -->
+<script>
+const BACKEND_URL = "https://onrender.com"; // Your live scramjet container
+
+function launchProxy(targetUrl) {
+if (!targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
+targetUrl = 'https://' + targetUrl;
+}
+// Formats the query explicitly so the Scramjet / Wisp gateway can process it cleanly
+window.location.href = BACKEND_URL + "/?url=" + encodeURIComponent(targetUrl);
+}
+
+document.getElementById('proxy-form').addEventListener('submit', function(e) {
+e.preventDefault();
+const inputVal = document.getElementById('proxy-address').value;
+if (inputVal) {
+launchProxy(inputVal);
+}
+});
+</script>
+
 </body>
 </html>
+
